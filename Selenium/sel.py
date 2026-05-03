@@ -1,4 +1,4 @@
-pip install pytest selenium
+pip install.selenium
 from selenium import webdriver
 driver = webdriver.Chrome()
 import pytest
