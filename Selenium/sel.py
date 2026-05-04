@@ -7,7 +7,7 @@ import pytest
 
 @pytest.fixture
 def sumple_user():
-    options = Options()
+    options = options()
     options.add_argument("--headless")  # run without UI
     options.add_argument("--no-sandbox")  # required in many CI environments
     options.add_argument("--disable-dev-shm-usage")  # overcome limited /dev/shm size on Linux
