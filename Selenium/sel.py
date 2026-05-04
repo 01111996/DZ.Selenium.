@@ -1,20 +1,20 @@
-import selenium
-from selenium import webdriver
-driver = webdriver.Chrome()
 import pytest
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 
 #создаю фикстуру:
 
 @pytest.fixture
 def sumple_user():
-    options = options()
-    options.add_argument("--headless")  # run without UI
-    options.add_argument("--no-sandbox")  # required in many CI environments
-    options.add_argument("--disable-dev-shm-usage")  # overcome limited /dev/shm size on Linux
-driver = webdriver.Chrome(options=options)
-driver.implicitly_wait(10)
-yield driver
-driver.quit()
+    options = Options()
+    options.add_argument("--headless")  
+    options.add_argument("--no-sandbox")  
+    options.add_argument("--disable-dev-shm-usage")  
+    driver = webdriver.Chrome(options=options)
+    driver.implicitly_wait(10)
+    yield driver
+    driver.quit()
 
 # успешная авторизация:
     
